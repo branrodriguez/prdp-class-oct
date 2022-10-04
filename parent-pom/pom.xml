@@ -44,6 +44,11 @@
                             <muleVersion>${app.runtime}</muleVersion>
                             <server>cloudhub-deploy</server>                            <!-- reads credentials from settings.xml -->
                             <applicationName>${project.name}</applicationName>
+			    <deploymentTimeout>240000</deploymentTimeout>
+			    <properties>
+                                <anypoint.platform.client_id>${ap.client_id}</anypoint.platform.client_id>
+                                <anypoint.platform.client_secret>${ap.client_secret}></anypoint.platform.client_secret>
+                            </properties>
                             <replicas>1</replicas>
                             <vCores>0.1</vCores>
                             <deploymentSettings>
