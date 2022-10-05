@@ -24,7 +24,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      
+        with:
+          fetch-depth: '0'
+
+      - name: git_new_tag
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          WITH_V: true
+          
+      - name: Update POM
+        run: mvn versions:set -DnewVersion=${{ steps.git_new_tag.outputs.new_tag }}-SNAPSHOT
       # Caches dependencies and build outputs to improve workflow execution time.
       - uses: actions/cache@v3
         with:
