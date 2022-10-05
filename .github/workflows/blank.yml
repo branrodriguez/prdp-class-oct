@@ -34,8 +34,6 @@ jobs:
           INITIAL_VERSION: 1.0.0
           WITH_V: true
           
-      - name: Update POM
-        run: mvn versions:set --file check-in-papi-app/pom.xml -DnewVersion=${{ steps.git_new_tag.outputs.new_tag }}-SNAPSHOT
       # Caches dependencies and build outputs to improve workflow execution time.
       - uses: actions/cache@v3
         with:
@@ -72,7 +70,7 @@ jobs:
           
       # maven build command, could add other flags if needed
       - name: Build
-        run: mvn -B package --file check-in-papi-app/pom.xml
+        run: mvn -B package --file check-in-papi-app/pom.xml -DnewVersion=${{ steps.git_new_tag.outputs.new_tag }}-SNAPSHOT
         
       - name: Stamp artifact file name with commit hash
         run: |
