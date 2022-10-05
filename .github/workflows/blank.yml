@@ -69,8 +69,11 @@ jobs:
             ]
           
       # maven build command, could add other flags if needed
+      - name: newVersion
+        run: mvn versions:set -DnewVersion=${{ steps.git_new_tag.outputs.new_tag }}-SNAPSHOT
+      
       - name: Build
-        run: mvn -B package --file check-in-papi-app/pom.xml -DnewVersion=${{ steps.git_new_tag.outputs.new_tag }}-SNAPSHOT
+        run: mvn -B package --file check-in-papi-app/pom.xml 
         
       - name: Stamp artifact file name with commit hash
         run: |
