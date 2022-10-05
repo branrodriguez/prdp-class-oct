@@ -27,7 +27,8 @@ jobs:
         with:
           fetch-depth: '0'
 
-      - name: git_new_tag
+      - name: Create new tag
+        id: git_new_tag
         uses: anothrNick/github-tag-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
