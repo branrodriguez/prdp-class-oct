@@ -30,44 +30,44 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-                    <groupId>org.mule.tools.maven</groupId>
-                    <artifactId>mule-maven-plugin</artifactId>
-                    <version>${mule.maven.plugin.version}</version>
-                    <extensions>true</extensions>
-                    <configuration>
-                        <cloudhub2Deployment>
-                            <uri>https://anypoint.mulesoft.com</uri>
-                            <businessGroupId>28217177-d9be-4a75-89a3-082e989aeb81</businessGroupId>
-                            <environment>Sandbox</environment>
-                            <target>Cloudhub-US-East-2</target>
-                            <provider>MC</provider>
-                            <muleVersion>${app.runtime}</muleVersion>
-                            <server>cloudhub-deploy</server>                            <!-- reads credentials from settings.xml -->
-                            <applicationName>check-in-auto</applicationName>
-			    <deploymentTimeout>240000</deploymentTimeout>
-			    <properties>
-                                <anypoint.platform.client_id>${ap.client_id}</anypoint.platform.client_id>
-                                <anypoint.platform.client_secret>${ap.client_secret}></anypoint.platform.client_secret>
-                            </properties>
-                            <replicas>1</replicas>
-                            <vCores>0.1</vCores>
-                            <deploymentSettings>
-                                <http>
-                                    <inbound>
-                                        <lastMileSecurity>true</lastMileSecurity>
-                                    </inbound>
-                                </http>
-                            </deploymentSettings>
-                            <integrations>
-                                <services>
-                                    <objectStoreV2>
-                                        <enabled>true</enabled>
-                                    </objectStoreV2>
-                                </services>
-                            </integrations>
-                        </cloudhub2Deployment>
-                    </configuration>
-                </plugin>
+				    <groupId>org.mule.tools.maven</groupId>
+				    <artifactId>mule-maven-plugin</artifactId>
+				    <version>${mule.maven.plugin.version}</version>
+				    <extensions>true</extensions>
+				    <configuration>
+					<cloudhub2Deployment>
+					    <uri>https://anypoint.mulesoft.com</uri>
+					    <businessGroupId>28217177-d9be-4a75-89a3-082e989aeb81</businessGroupId>
+					    <environment>Sandbox</environment>
+					    <target>Cloudhub-US-East-2</target>
+					    <provider>MC</provider>
+					    <muleVersion>${app.runtime}</muleVersion>
+					    <server>cloudhub-deploy</server>                            <!-- reads credentials from settings.xml -->
+					    <applicationName>check-in-auto</applicationName>
+					    <deploymentTimeout>240000</deploymentTimeout>
+						<properties>
+							<anypoint.platform.client_id>${ap.client_id}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${ap.client_secret}</anypoint.platform.client_secret>
+						</properties>
+					    <replicas>1</replicas>
+					    <vCores>0.1</vCores>
+					    <deploymentSettings>
+						<http>
+						    <inbound>
+							<lastMileSecurity>true</lastMileSecurity>
+						    </inbound>
+						</http>
+					    </deploymentSettings>
+					    <integrations>
+						<services>
+						    <objectStoreV2>
+							<enabled>true</enabled>
+						    </objectStoreV2>
+						</services>
+					</integrations>
+					</cloudhub2Deployment>
+					</configuration>
+               			</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
