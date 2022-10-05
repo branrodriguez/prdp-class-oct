@@ -70,7 +70,7 @@ jobs:
           
       # maven build command, could add other flags if needed
       - name: newVersion
-        run: mvn versions:set -DnewVersion=${{ steps.git_new_tag.outputs.new_tag }}-SNAPSHOT
+        run: mvn versions:set -DnewVersion=${{ steps.git_new_tag.outputs.new_tag }}-SNAPSHOT --file check-in-papi-app/pom.xml 
       
       - name: Build
         run: mvn -B package --file check-in-papi-app/pom.xml 
